@@ -1,7 +1,9 @@
-all: main test
+SOURCES = main.c
+TARGET = main
 
-main:
-    gcc main.c -o main
+test: $(TARGET)
+	./$(TARGET) test.txt 
 
-test: main
-    ./main test.txt 
+$(TARGET): $(SOURCES)
+	gcc $(SOURCES) -o $(TARGET)
+
